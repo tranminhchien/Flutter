@@ -2,37 +2,81 @@ import 'package:flutter/material.dart';
 import 'package:hello_word/core/colors_util.dart';
 
 class Register extends StatelessWidget {
+  int _indexLayer = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
         padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height * 0.074,
-            bottom: MediaQuery.of(context).size.height * 0.074,
-            left: MediaQuery.of(context).size.width * 0.088,
-            right: MediaQuery.of(context).size.width * 0.088),
+          top: MediaQuery.of(context).size.height * 0.074,
+          bottom: MediaQuery.of(context).size.height * 0.074, //
+          left: 30,
+          //MediaQuery.of(context).size.width * 0.088,
+          right:30,
+          // MediaQuery.of(context).size.width * 0.088, //25/812
+        ),
         child: ListView(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-         
           children: [
-            Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(76)),
-                child: Container(
+            Stack(
+              children: [
+                Container(
                   width: 153,
-                  height: 153,
-                  color: Colors.black12,
-                  child: Image.asset(
-                    "assets/images/IconRegister.png",
-                    width: 65,
-                    height: 57,
-                    fit: BoxFit.contain,
+                  height: 176.3,
+                ),
+                Container(
+                  //color: Colors.red,
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(76),
+                      ),
+                      child: Container(
+                        width: 153,
+                        height: 153,
+                        color: Colors.black.withOpacity(0.07),
+                        child: Image.asset(
+                          "assets/images/IconRegister.png",
+                          // width: 65,
+                          // height: 57,
+                           fit: BoxFit.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              Positioned(
+                //top: ,
+                left: 0,
+                right:0,
+                bottom: 0,
+                child: GestureDetector(
+                  onTap: (){
+                    print("object");
+                  },
+                  child: Container(
+                    height: 46,
+                    //color: Colors.blue,
+                    child: Image.asset("assets/images/IconPlus.png"),
                   ),
                 ),
               ),
-            ), 
+              // Positioned(
+              //   // top: ,
+              //   // left: ,
+              //   // right: ,
+              //   // bottom: ,
+              //   child: Image.asset("assets/images/IconPlus.png"),
+              // ),
+              // Positioned(
+              //   // top: ,
+              //   // left: ,
+              //   // right: ,
+              //   // bottom: ,
+              //   child: Image.asset("assets/images/IconPlus.png"),
+              // ),
+              ],
+            ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.109),
             TextField(
               decoration: InputDecoration(
@@ -87,7 +131,7 @@ class Register extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                         padding:EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                         child: Center(
                           child: Text(
                             "Register",
@@ -96,8 +140,8 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding:EdgeInsets.fromLTRB(0, 0, 20, 0),
-                        child: Center(     
+                        padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                        child: Center(
                           child: Image.asset(
                             "assets/images/IconSmall.png",
                             width: 25,
@@ -112,23 +156,77 @@ class Register extends StatelessWidget {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.0369),
+            // Container(
+            //   child: Text.rich(
+            //     TextSpan(
+            //       children: [
+            //         TextSpan(
+            //           text: "You already have an account?",
+            //         ),
+            //         TextSpan(
+            //           text: "Login",
+            //           style: TextStyle(color: Colors.red),
+            //         ),
+            //       ],
+
+            //     ),
+            //   ),
+            // ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "You already have an account?",
-                    style: TextStyle(color: Colors.black),
-                  ),
+                Expanded(
+                  child: Container(
+              color: Colors.red,
+              child: Wrap(
+                  children: [
+                    Text(
+                      "You already have an account?",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      "Login",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                    Text(
+                      "You already have an account?",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      "Login",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    Text(
+                      "You already have an account?",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      "Login",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ],
+              ),
+            ),
                 ),
-                Center(
-                  child: Text(
-                    "Login",
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
+                Icon(Icons.check_circle_outline),
               ],
             ),
+            
+            // Container(
+            //   color: Colors.red,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //  Text(
+            //   "You already have an account?",
+            //   style: TextStyle(color: Colors.black),
+            // ),
+            // Text(
+            //   "Login",
+            //   style: TextStyle(color: Colors.red),
+            // ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

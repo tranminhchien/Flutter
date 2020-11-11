@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_word/screen/home_screen/home_screen.dart';
 import 'package:hello_word/screen/register_screen.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Register()
+      home: HomeScreen()
       //MyHomePage(title: 'Travel App C'),
     );
   }
